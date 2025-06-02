@@ -2,22 +2,38 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>分享處理中</title> <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>分享處理中</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <style>
     body {
       margin: 0;
-      /* 可以設定為透明或白色，讓它看起來更像空白頁 */
-      /* background-color: transparent; */
-      background-color: #FFFFFF; /* 或者純白 */
+      background-color: #FFFFFF; /* 設定為純白背景，使其看起來空白 */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      text-align: center;
+      padding: 40px 20px; /* 保留一些邊距以顯示提示訊息 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
     }
-    /* 原有的 .page-marker, .message-container, .message 等樣式可以移除或保留，因為對應的 HTML 元素將被移除 */
+    .message-display { /* 用於顯示特定訊息 */
+      font-size: 16px;
+      color: #4A4A4A; /* 設定一個清晰的文字顏色 */
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #f0f0f0; /* 給提示訊息一個淺色背景 */
+      border-radius: 8px;
+      display: none; /* 預設隱藏 */
+    }
   </style>
 </head>
 <body>
+  <div id="messageDisplay" class="message-display"></div>
+
   <script>
     async function initializeShareRedirect() {
-      // const statusMessageElement = document.getElementById('statusMessage'); // 該元素已移除，此行不再需要
+      const messageDisplayElement = document.getElementById('messageDisplay');
       const liffId = "2007344981-byP9NanG"; // 此頁面專用的 LIFF ID
 
       try {
@@ -35,16 +51,15 @@
 
         if (!shareTarget) {
           console.error("Error: Missing share target (target) parameter.");
-          // 可以選擇性地 alert 提示，或者直接關閉
-          // alert('錯誤：缺少分享目標參數。');
-          setTimeout(() => { if (liff.isInClient()) liff.closeWindow(); }, 500); // 快速關閉
+          // 不在頁面顯示錯誤，直接嘗試關閉
+          setTimeout(() => { if (liff.isInClient()) liff.closeWindow(); }, 500);
           return;
         }
 
         let targetFile = '';
         let altText = '';
         
-        // JSON 檔案現在位於相對於此 index.html 的同一目錄下 (在 cardshare 專案內)
+        // 假設 JSON 檔案與此 index.html 在 cardshare 專案的同一根目錄下
         if (shareTarget === 'ksdigi') {
           targetFile = 'ksdigi.json'; 
           altText = 'KSDIGI 名片';
@@ -56,8 +71,8 @@
           altText = '越境食旅 名片';
         } else {
           console.error("Error: Unknown share target - " + shareTarget);
-          // alert('錯誤：未知的分享目標 (' + shareTarget + ')。');
-          setTimeout(() => { if (liff.isInClient()) liff.closeWindow(); }, 500); // 快速關閉
+          // 不在頁面顯示錯誤，直接嘗試關閉
+          setTimeout(() => { if (liff.isInClient()) liff.closeWindow(); }, 500);
           return;
         }
 
@@ -81,22 +96,21 @@
           console.log("Share initiated! Closing window...");
           liff.closeWindow();
         } else {
-          console.warn("Not in LINE client. Share function limited.");
-          // 在非 LINE Client 環境，可以選擇性提示或直接嘗試關閉
-          // alert("此分享功能建議在 LINE App 內操作。"); 
-          if (liff.getOS() === 'web' || !liff.isInClient()) { // 如果是網頁瀏覽器或非LINE App環境
-            // 可以不執行任何動作，或嘗試關閉 (雖然外部瀏覽器關閉視窗可能受限)
-            // window.close(); // 嘗試關閉瀏覽器視窗，但可能被瀏覽器阻止
-          } else if (liff.isInClient()) { // 如果意外地還是在某種 LIFF Client
-             liff.closeWindow();
-          }
+          // ⭐ 僅在非 LINE App 環境下顯示指定的提示訊息 ⭐
+          messageDisplayElement.innerHTML = '請使用手機版App分享，<br>電腦網頁版不支援此功能。';
+          messageDisplayElement.style.display = 'block'; // 顯示訊息區塊
+          console.warn("Not in LINE client. Share function limited. Displaying message.");
         }
 
       } catch (err) {
         console.error("Share redirect error:", err);
-        // 對於未捕獲的嚴重錯誤，可以考慮 alert，或者僅記錄到 console
-        // alert(`分享過程中發生錯誤：${err.toString()}`);
-        if (liff.isInClient()) liff.closeWindow(); // 發生錯誤也嘗試關閉視窗
+        // 發生其他錯誤時，不在頁面顯示，僅記錄到 console，並嘗試關閉視窗
+        // 您可以根據需要決定是否要對使用者顯示通用錯誤訊息
+        // messageDisplayElement.textContent = '發生未知錯誤，請稍後再試。';
+        // messageDisplayElement.style.display = 'block';
+        if (liff.isInClient()) {
+             setTimeout(() => { liff.closeWindow(); }, 500); // 延遲一點關閉，以防分享未完全啟動
+        }
       }
     }
     initializeShareRedirect();
