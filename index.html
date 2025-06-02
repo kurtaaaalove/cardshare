@@ -84,18 +84,18 @@
           return;
         }
 
-        let targetFile = '';
+        let targetFile = ''; // 將直接是檔案名稱
         let altText = '';
         
-        // ⭐ JSON 檔案現在位於相對於此 index.html 的 card/ 目錄下 (在 cardshare 專案內) ⭐
+        // ⭐ JSON 檔案現在位於相對於此 index.html 的同一目錄下 (在 cardshare 專案內) ⭐
         if (shareTarget === 'ksdigi') {
           targetFile = 'ksdigi.json'; 
           altText = 'KSDIGI 名片';
         } else if (shareTarget === 'daka') {
-          targetFile = 'card/daka.json';
+          targetFile = 'daka.json';
           altText = 'DAKA 名片';
         } else if (shareTarget === 'kktl') {
-          targetFile = 'card/kktl.json';
+          targetFile = 'kktl.json';
           altText = '越境食旅 名片';
         } else {
           statusMessageElement.innerHTML = `<span class="error-message">錯誤：未知的分享目標 (${shareTarget})。</span><br>此視窗將在3秒後關閉。`;
