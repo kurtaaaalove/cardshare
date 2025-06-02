@@ -1,0 +1,180 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "20px",
+        "spacing": "lg",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://ks-digi.com/image/kktl.png",
+            "size": "md",
+            "aspectMode": "fit",
+            "align": "center",
+            "margin": "none"
+          },
+          {
+            "type": "text",
+            "text": "越境食旅",
+            "weight": "bold",
+            "size": "xl",
+            "color": "#6D5C48",
+            "align": "center",
+            "margin": "md"
+          },
+          {
+            "type": "text",
+            "text": "專業代訂餐廳\n快速、方便、信賴",
+            "size": "md",
+            "color": "#8C7B6A",
+            "align": "center",
+            "wrap": true,
+            "margin": "sm",
+            "lineSpacing": "4px"
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "15px",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#A88C6F",
+            "action": {
+              "type": "uri",
+              "label": "🌐 官網連結",
+              "uri": "https://kktl.com.tw"
+            },
+            "height": "sm",
+            "adjustMode": "shrink-to-fit"
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#B89A7F",
+            "action": {
+              "type": "uri",
+              "label": "💬 加入客服",
+              "uri": "https://lin.ee/UkmS9s4"
+            },
+            "height": "sm",
+            "margin": "sm",
+            "adjustMode": "shrink-to-fit"
+          }
+        ]
+      },
+      "styles": {
+        "body": {
+          "backgroundColor": "#F7F2E9",
+          "separator": false
+        },
+        "footer": {
+          "backgroundColor": "#F7F2E9",
+          "separator": false
+        }
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "20px",
+        "spacing": "md",
+        "contents": [
+          {
+            "type": "text",
+            "text": "社群連結",
+            "weight": "bold",
+            "size": "xl",
+            "color": "#6D5C48",
+            "align": "center",
+            "margin": "md"
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#A88C6F",
+            "action": {
+              "type": "uri",
+              "label": "👥 越境訂位大群1",
+              "uri": "https://line.me/ti/g2/X5QciP2xLd39nUluwa6hnrGO1-2mEAsKsPwhJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+            },
+            "height": "sm",
+            "margin": "sm",
+            "adjustMode": "shrink-to-fit"
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#A88C6F",
+            "action": {
+              "type": "uri",
+              "label": "👥 越境訂位大群2",
+              "uri": "https://line.me/ti/g2/IVMvdWLH96RS5Nhm5akI-VKZFmGgqSckohWXFw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+            },
+            "height": "sm",
+            "margin": "sm",
+            "adjustMode": "shrink-to-fit"
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#A88C6F",
+            "action": {
+              "type": "uri",
+              "label": "💬 越境聊天群",
+              "uri": "https://line.me/ti/g2/lsohhWmF0nCgNmdEcRTGEPvwEyXrBLcF2f03Ug?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+            },
+            "height": "sm",
+            "margin": "sm",
+            "adjustMode": "shrink-to-fit"
+          },
+          {
+            "type": "text",
+            "text": "美食餐廳代訂\n首選越境食旅",
+            "size": "md",
+            "color": "#8C7B6A",
+            "align": "center",
+            "wrap": true,
+            "margin": "xl",
+            "lineSpacing": "4px"
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "10px",
+        "contents": [
+          {
+            "type": "text",
+            "text": "想吃就訂。Book your table Now.",
+            "size": "sm",
+            "color": "#8C7B6A",
+            "align": "center",
+            "wrap": true
+          }
+        ]
+      },
+      "styles": {
+        "body": {
+          "backgroundColor": "#F7F2E9",
+          "separator": false
+        },
+        "footer": {
+          "backgroundColor": "#F7F2E9",
+          "separator": false
+        }
+      }
+    }
+  ]
+}
