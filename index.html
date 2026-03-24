@@ -53,9 +53,12 @@
         } else if (shareTarget === 'kktl') {
           targetFile = 'kktl.json';
           altText = '越境食旅 名片';
-        } else if (shareTarget === 'kurt') { // ⭐ 新增的判斷式 ⭐
+        } else if (shareTarget === 'kurt') {
           targetFile = 'kurt.json';
           altText = '王威凱 個人名片';
+        } else if (shareTarget === 'diaominasia') {
+          targetFile = 'diaominasia.json';
+          altText = '刁民酸菜魚 名片';
         } else {
           console.error("Error: Unknown share target - " + shareTarget);
           setTimeout(() => { if (liff.isInClient()) liff.closeWindow(); }, 500);
