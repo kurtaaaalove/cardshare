@@ -65,7 +65,7 @@
           return;
         }
         
-        const response = await fetch(targetFile); 
+        const response = await fetch(targetFile + '?v=' + Date.now());
         if (!response.ok) {
           throw new Error(`讀取 ${targetFile} 失敗 (狀態：${response.status})`);
         }
